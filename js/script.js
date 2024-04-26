@@ -18,7 +18,7 @@ async function handleSubmit(event) {
         let successTitle = '';
         let successText = '';
 
-        // Verificar el idioma actual y establecer el título y texto de éxito correspondiente
+        
         if (idiomaActual.getElementsByTagName('img')[0].src.includes('usa')) {
             successTitle = 'Message sent';
             successText = 'Thank you for contacting me';
@@ -37,6 +37,7 @@ async function handleSubmit(event) {
         this.reset();
     }
 }
+
 
 const idiomaActual = document.getElementById('idioma');
 const listaIdiomas = document.getElementById('idiomas');
