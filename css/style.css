@@ -94,6 +94,7 @@
 
 }
 
+
 .proyectos .container .row h1 {
   text-align: center;
   font-size: 35px;
@@ -572,6 +573,16 @@ footer .arriba {
     transition: .3s;
     color: black;
   }
+
+  .lenguajesh {
+    font-size: 10px;
+    color: blue;
+  }
+
+  .lenguaje span {
+    font-size: 13px;
+    font-weight: bold;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -587,4 +598,5 @@ footer .arriba {
     font-size: 15px;
     font-weight: bold;
   }
+
 }
