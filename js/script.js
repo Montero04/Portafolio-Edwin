@@ -14,6 +14,12 @@ async function handleSubmit(event) {//funcion para recibir la promesa se usa fun
         }
     })
     if (response.ok) {
+        Swal.fire({
+            title: 'Mensaje enviado',
+            text: 'Gracias por contactarme',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        })
         this.reset()//Limpia campos del form
     }
 }
@@ -76,6 +82,7 @@ function establecerIdioma(idioma) {
             lenguajes.textContent = 'Programming languages used';
             correo.textContent = 'Email';
             cv.textContent = 'Download CV'
+            cv.href='CV Ingles Edwin Montero CalvoV2 (1).pdf'
             proyectos2.textContent = 'Projects';
             cenfo.textContent = 'Cenfomon';
             p2.textContent = 'Developed in Unity with C#'
@@ -98,11 +105,12 @@ function establecerIdioma(idioma) {
             proyectos.textContent = 'Proyectos'
             contactame.textContent = 'Contáctame'
             titulo.textContent = 'Hola Mundo';
-            sobremi.textContent = 'Sobre Mí';
+            sobremi2.textContent = 'Sobre Mí';
             p1.textContent = 'Ingeniero de Software con conocimientos en .NET y Java. Persistente y siempre dispuesto a enfrentar nuevos retos.';
             lenguajes.textContent = 'Lenguajes Utilizados';
             correo.textContent = 'Correo';
             cv.textContent = 'Descargar CV'
+            cv.href='CV Espanol Edwin Montero CalvoV2.pdf'
             proyectos2.textContent = 'Proyectos';
             cenfo.textContent = 'Cenfomon';
             p2.textContent = 'Desarrollado en Unity con C#.'
