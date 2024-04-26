@@ -2,28 +2,41 @@
 const $form = document.querySelector('#fs-frm')
 $form.addEventListener('submit', handleSubmit)//Escucha el evento submit del form y se usa la funcion handleSubmit
 
-async function handleSubmit(event) {//funcion para recibir la promesa se usa funcion asincrona para esperar a que se termine gracias a await y esa respuesta almacenarla en una constante
-    event.preventDefault()//PARA EVITAR QUE LA PAGINA RECARGUE CO LA INFO
-    const form = new FormData(this)//aqui guarda la info del form
+async function handleSubmit(event) {
+    event.preventDefault();
+    const form = new FormData(this);
 
-    const response = await fetch(this.action, { //toma action y method para enviar esta info via xml http request
-        method: this.method,//metodo para enviar el form
-        body: form,//info del form ya que fetch y la api sabe que le puedo enviar un fom
-        headers: {//
-            'Accept': 'application/json'//se va a aceptar de respuesta un json
+    const response = await fetch(this.action, {
+        method: this.method,
+        body: form,
+        headers: {
+            'Accept': 'application/json'
         }
-    })
+    });
+
     if (response.ok) {
+        let successTitle = '';
+        let successText = '';
+
+        // Verificar el idioma actual y establecer el título y texto de éxito correspondiente
+        if (idiomaActual.getElementsByTagName('img')[0].src.includes('usa')) {
+            successTitle = 'Message sent';
+            successText = 'Thank you for contacting me';
+        } else {
+            successTitle = 'Mensaje enviado';
+            successText = 'Gracias por contactarme';
+        }
+
         Swal.fire({
-            title: 'Mensaje enviado',
-            text: 'Gracias por contactarme',
+            title: successTitle,
+            text: successText,
             icon: 'success',
             confirmButtonText: 'Ok'
-        })
-        this.reset()//Limpia campos del form
+        });
+        
+        this.reset();
     }
 }
-
 
 const idiomaActual = document.getElementById('idioma');
 const listaIdiomas = document.getElementById('idiomas');
